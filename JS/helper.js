@@ -10,33 +10,36 @@ let helpPopupImg = document.querySelector('.helpPopup .img img');
 
 
 export function changeScreen(screen = 1) {
-    switch (screen) {
-        case 1:
-            getFirstScreen();
-            break;
-        case 2:
-            getSecScreen();
-            break;
-        default:
-            console.log('No');
-            break;
-    }
+  switch (screen) {
+    case 1:
+      getFirstScreen();
+      break;
+    case 2:
+      getSecScreen();
+      break;
+    case 3:
+      getThirdScreen();
+      break;
+    default:
+      console.log('Noooo, please nooooo, please');
+      break;
+  }
 }
 
 function getFirstScreen() {
-    vars.setScreen(1);
-    vars.setPScreen(1);
-    let main = document.querySelector('main');
-    main.className = "";
-    main.classList.add('choose');
-    main.innerHTML = getFirstPageHTML();
-    leftSideUL.classList.add('hidden');
-    nRules.classList.add('hidden');
-    bRules.classList.add('hidden');
+  vars.setScreen(1);
+  vars.setPScreen(1);
+  let main = document.querySelector('main');
+  main.className = "";
+  main.classList.add('choose');
+  main.innerHTML = getFirstPageHTML();
+  leftSideUL.classList.add('hidden');
+  nRules.classList.add('hidden');
+  bRules.classList.add('hidden');
 }
 
 function getFirstPageHTML() {
-    return `
+  return `
     <div class="container">
         <h1>Welcome To <span>Rock, Paper & scissors</span> Game! </h1>
         <p>Choose Your Game</p>
@@ -56,20 +59,21 @@ function getFirstPageHTML() {
 }
 
 function getSecScreen() {
-    vars.setScreen(2);
-    let main = document.querySelector('main');
-    main.className = "";
-    main.classList.add('secScreen');
-    leftSideUL.classList.remove('hidden');
-    vars.getMode() == 1 ? main.classList.add('normalSecScreen') : main.classList.add('bounsSecScreen');
-    vars.getMode() == 1 ? main.innerHTML = getNormalSecPageHTML() : main.innerHTML = getBounsSecPageHTML();
-    vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
+  vars.setScreen(2);
+  vars.setPScreen(1);
+  let main = document.querySelector('main');
+  main.className = "";
+  main.classList.add('secScreen');
+  leftSideUL.classList.remove('hidden');
+  vars.getMode() == 1 ? main.classList.add('normalSecScreen') : main.classList.add('bounsSecScreen');
+  vars.getMode() == 1 ? main.innerHTML = getNormalSecPageHTML() : main.innerHTML = getBounsSecPageHTML();
+  vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
 }
 
 function getNormalSecPageHTML() {
-    return `
+  return `
     <div class="container">
-      <div class="scoreNav">
+      <div class="normalScoreNav scoreNav">
         <ul>
           <li>Rock</li>
           <li>paper</li>
@@ -85,15 +89,15 @@ function getNormalSecPageHTML() {
         <img class="line" src="images/bg-triangle.svg" alt="" aria-hidden="true">
         <ul>
           <li>
-            <button aria-label="Play scissors" class="scissorsBTN" data-num="0"><img src="images/icon-scissors.svg"
+            <button aria-label="Play scissors" class="scissorsBTN playRoleBTN" data-num="0"><img src="images/icon-scissors.svg"
                 alt="" aria-hidden="true"></button>
           </li>
           <li>
-            <button aria-label="Play Paper" class="paperBTN" data-num="1"><img src="images/icon-paper.svg" alt=""
+            <button aria-label="Play Paper" class="paperBTN playRoleBTN" data-num="1"><img src="images/icon-paper.svg" alt=""
                 aria-hidden="true"></button>
           </li>
           <li>
-            <button aria-label="Play Rock" class="rockBTN" data-num="2"><img src="images/icon-rock.svg" alt=""
+            <button aria-label="Play Rock" class="rockBTN playRoleBTN" data-num="2"><img src="images/icon-rock.svg" alt=""
                 aria-hidden="true"></button>
           </li>
         </ul>
@@ -103,9 +107,9 @@ function getNormalSecPageHTML() {
 }
 
 function getBounsSecPageHTML() {
-    return `
+  return `
     <div class="container">
-      <div class="scoreNav">
+      <div class="bounsScoreNav scoreNav">
         <ul>
           <li>Rock</li>
           <li>paper</li>
@@ -123,23 +127,23 @@ function getBounsSecPageHTML() {
         <img class="line" src="images/bg-pentagon.svg" alt="" aria-hidden="true">
         <ul>
           <li>
-            <button aria-label="Play scissors" class="scissorsBTN" data-num="0"><img src="images/icon-scissors.svg"
+            <button aria-label="Play scissors" class="scissorsBTN playRoleBTN" data-num="0"><img src="images/icon-scissors.svg"
                 alt="" aria-hidden="true"></button>
           </li>
           <li>
-            <button aria-label="Play Paper" class="paperBTN" data-num="1"><img src="images/icon-paper.svg" alt=""
+            <button aria-label="Play Paper" class="paperBTN playRoleBTN" data-num="1"><img src="images/icon-paper.svg" alt=""
                 aria-hidden="true"></button>
           </li>
           <li>
-            <button aria-label="Play Rock" class="rockBTN" data-num="2"><img src="images/icon-rock.svg" alt=""
+            <button aria-label="Play Rock" class="rockBTN playRoleBTN" data-num="2"><img src="images/icon-rock.svg" alt=""
                 aria-hidden="true"></button>
           </li>
           <li>
-            <button aria-label="Play Lizard" class="lizardBTN" data-num="3"><img src="images/icon-lizard.svg" alt=""
+            <button aria-label="Play Lizard" class="lizardBTN playRoleBTN" data-num="3"><img src="images/icon-lizard.svg" alt=""
                 aria-hidden="true"></button>
           </li>
           <li>
-            <button aria-label="Play Spock" class="spockBTN" data-num="4"><img src="images/icon-spock.svg" alt=""
+            <button aria-label="Play Spock" class="spockBTN playRoleBTN" data-num="4"><img src="images/icon-spock.svg" alt=""
                 aria-hidden="true"></button>
           </li>
         </ul>
@@ -148,19 +152,97 @@ function getBounsSecPageHTML() {
     `;
 }
 
+function getThirdScreen() {
+  vars.setScreen(3);
+  vars.setPScreen(2);
+  let main = document.querySelector('main');
+  main.className = "";
+  main.classList.add('thirdScreen');
+  leftSideUL.classList.remove('hidden');
+  vars.getMode() == 1 ? main.classList.add('normalThirdScreen') : main.classList.add('bounsThirdScreen');
+  vars.getMode() == 1 ? main.innerHTML = getThirdPageHTML('normalScoreNav', getRole(+ vars.getUserChoice()), vars.getUserChoice())
+    : main.innerHTML = getThirdPageHTML('bounsScoreNav', getRole(+ vars.getUserChoice()), vars.getUserChoice(), 'lizard', 'spock');
+  vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
+}
+
+function getThirdPageHTML(nav = 'normalScoreNav', userType, userID, lizard = "", spock = "") {
+  return `
+  <div class="container">
+  <div class="${nav} scoreNav">
+    <ul>
+      <li>Rock</li>
+      <li>paper</li>
+      <li>scissors</li>
+      <li>${lizard}</li>
+      <li>${spock}</li>
+    </ul>
+    <div class="score">
+      <p>Score<span>0</span></p>
+    </div>
+  </div>
+</div>
+<div class="inGameFlex">
+  <div class="userChoice playChoice">
+    <p>you picked</p>
+    <div class="choiceCircle ${userType}BTN" data-num="${userID}">
+      <div class="img">
+        <img src="images/icon-${userType}.svg" alt="You picked ${userType}">
+      </div>
+    </div>
+  </div>
+  <div class="state hidden">
+    <p>You lose</p>
+    <button class="playAgain">play again</button>
+  </div>
+  <div class="pcChoice playChoice">
+    <p>the house picked</p>
+    <div class="emptyChoiceCircle" data-num="">
+      <div class="img">
+        <img src="" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    `;
+}
+
+function getRole(id) {
+  switch (id) {
+    case 0:
+      return 'scissors';
+    case 1:
+      return 'paper';
+    case 2:
+      return 'rock';
+    case 3:
+      return 'lizard';
+    case 4:
+      return 'spock';
+
+    default:
+      console.log("no no no no no");
+      break;
+  }
+}
+
+export function getRandomChoice() {
+  return Math.floor(Math.random() * (4 + 1));
+}
+
 export function showRules(mode) {
-    backdrop.classList.remove('hidden');
-    helpPopup.classList.remove('hidden');
-    if (mode == 1) {
-        helpPopupImg.setAttribute('src', 'images/image-rules.svg');
-        helpPopupImg.setAttribute('alt', 'Normal game rules');
-    } else if (mode == 2) {
-        helpPopupImg.setAttribute('src', 'images/image-rules-bonus.svg');
-        helpPopupImg.setAttribute('alt', 'bouns game rules');
-    }
+  backdrop.classList.remove('hidden');
+  helpPopup.classList.remove('hidden');
+  if (mode == 1) {
+    helpPopupImg.setAttribute('src', 'images/image-rules.svg');
+    helpPopupImg.setAttribute('alt', 'Normal game rules');
+  } else if (mode == 2) {
+    helpPopupImg.setAttribute('src', 'images/image-rules-bonus.svg');
+    helpPopupImg.setAttribute('alt', 'bouns game rules');
+  }
 }
 
 export function closePopUp() {
-    backdrop.classList.add('hidden');
-    helpPopup.classList.add('hidden');
+  backdrop.classList.add('hidden');
+  helpPopup.classList.add('hidden');
 }
