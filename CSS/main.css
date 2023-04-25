@@ -45,6 +45,8 @@ button {
     border: none;
     cursor: pointer;
     color: inherit;
+    text-align: center;
+    letter-spacing: inherit;
     font-weight: inherit;
     font-size: inherit;
     font-size: var(--font-size);
@@ -87,7 +89,6 @@ button:focus {
 ::-webkit-scrollbar {
     display: none;
 }
-
 
 html {
     scroll-behavior: smooth;
@@ -380,11 +381,10 @@ body {
     padding: 40px 0;
 }
 
-.secScreen .scoreNav {
+.scoreNav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 30px;
     width: 90%;
     max-width: 740px;
     border: 3px solid var(--Header-Outline);
@@ -392,30 +392,36 @@ body {
     margin: 0 auto;
 }
 
-.bounsSecScreen .scoreNav {
+.normalScoreNav {
+    padding: 24px 30px;
+}
+
+.bounsScoreNav {
     padding: 20px 30px;
 }
 
-.secScreen .scoreNav ul li {
+.scoreNav ul li {
     color: var(--score-bg);
-    font-size: 2.6rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.4px;
+}
+
+.normalScoreNav ul li {
+    font-size: 2.6rem;
     line-height: 34px;
 }
 
-.bounsSecScreen .scoreNav ul li {
+.bounsScoreNav ul li {
     font-size: 1.8rem;
     line-height: 23px;
 }
 
-.secScreen .scoreNav .score {
+.scoreNav .score {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 150px;
-    height: 102px;
     background-color: var(--score-bg);
     text-align: center;
     color: var(--Score-Text);
@@ -426,11 +432,15 @@ body {
     border-radius: 10px;
 }
 
-.bounsSecScreen .scoreNav .score {
+.normalScoreNav .score {
+    height: 102px;
+}
+
+.bounsScoreNav .score {
     height: 115px;
 }
 
-.secScreen .scoreNav .score span {
+.scoreNav .score span {
     display: block;
     font-size: 3.4rem;
     font-weight: 700;
@@ -471,9 +481,10 @@ body {
     border-radius: 50%;
     background-color: var(--score-bg);
     box-shadow: inset 0px 6px 0 0 rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+    transition: 0.3s transform;
 }
 
+.choiceCircle::after,
 .secScreen .game ul li button::after {
     content: "";
     position: absolute;
@@ -482,7 +493,8 @@ body {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    box-shadow: inset 0px -6px 0 0 rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px -6px 0 0 rgba(0, 0, 0, 0.3),
+        0px 1px 2px 2px rgba(0, 0, 0, 0.3);
     z-index: -1;
 }
 
@@ -500,7 +512,7 @@ body {
 }
 
 .secScreen .game ul li button:focus {
-    outline: 8px dashed var(--Dark-Text) !important;
+    outline: 2px dashed var(--Dark-Text) !important;
 }
 
 .secScreen .game ul li button img {
@@ -554,24 +566,138 @@ body {
     height: 170px;
 }
 
-.secScreen .game ul li .rockBTN::after {
+.rockBTN::after {
     background: var(--Rock-Gradient);
 }
 
-.secScreen .game ul li .paperBTN::after {
+.paperBTN::after {
     background: var(--Paper-Gradient);
 }
 
-.secScreen .game ul li .scissorsBTN::after {
+.scissorsBTN::after {
     background: var(--Scissors-Gradient);
 }
 
-.secScreen .game ul li .lizardBTN::after {
+.lizardBTN::after {
     background: var(--Lizard-Gradient);
 }
 
-.secScreen .game ul li .spockBTN::after {
+.spockBTN::after {
     background: var(--Cyan);
+}
+
+.thirdScreen {
+    padding: 40px 0;
+}
+
+.thirdScreen .inGameFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+    margin-top: 60px;
+}
+
+.thirdScreen .inGameFlex .playChoice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.thirdScreen .inGameFlex .playChoice p {
+    text-align: center;
+    color: var(--score-bg);
+    text-transform: uppercase;
+    letter-spacing: 2.8px;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 80px;
+    text-shadow: 1px 2px 3px #00000099;
+}
+
+.choiceCircle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+    height: 230px;
+    background-color: var(--score-bg);
+    border-radius: 50%;
+    box-shadow: inset 0px 7px 0 0 rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.emptyChoiceCircle {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.choiceCircle .img {
+    width: 100%;
+    text-align: center;
+}
+
+.choiceCircle .img img {
+    width: 45%;
+}
+
+.choiceCircle::after {
+    top: -35px;
+    left: -35px;
+    width: 300px;
+    height: 300px;
+    transition: 0.3s;
+}
+
+.emptyChoiceCircle:after {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    top: -35px;
+    left: -35px;
+    width: 300px;
+    height: 300px;
+    transition: 0.3s;
+}
+
+.win::after {
+    box-shadow: inset 0px -6px 0 0 rgba(0, 0, 0, 0.3),
+        0 0 0 50px rgba(255, 255, 255, 0.05),
+        0 0 0 100px rgba(255, 255, 255, 0.07),
+        0 0 0 150px rgba(255, 255, 255, 0.1);
+}
+
+.state {
+    color: var(--score-bg);
+    font-size: 3rem;
+    letter-spacing: 3px;
+    min-width: 211px;
+    text-shadow: 1px 2px 3px #00000099;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.state .playAgain {
+    color: var(--Dark-Text);
+    background-color: var(--score-bg);
+    border-radius: 8px;
+    width: 100%;
+    padding: 18px 4px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+}
+
+.state .playAgain:hover {
+    letter-spacing: 5px;
+    word-spacing: 4px;
 }
 
 @keyframes topE-f {
@@ -591,26 +717,6 @@ body {
 
     to {
         top: 0;
-    }
-}
-
-@keyframes topE-s {
-    from {
-        bottom: -60px;
-    }
-
-    to {
-        bottom: -80px;
-    }
-}
-
-@keyframes downE-s {
-    from {
-        bottom: -80px;
-    }
-
-    to {
-        bottom: -60px;
     }
 }
 

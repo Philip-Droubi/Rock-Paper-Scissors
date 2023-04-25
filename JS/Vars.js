@@ -1,6 +1,8 @@
 let gameMode;
 let screen;
 let pScreen;
+let score;
+let userChoice;
 
 export function setMode(mode) {
     gameMode = mode;
@@ -27,4 +29,22 @@ export function setPScreen(s) {
 
 export function getPScreen() {
     return pScreen;
+}
+
+export function addScore(s) {
+    score = score + s;
+    return true;
+}
+
+export function getScore() {
+    return score;
+}
+
+export function setUserChoice(ch) {
+    userChoice = ch;
+    return true;
+}
+
+export function getUserChoice() {
+    return userChoice;
 }
