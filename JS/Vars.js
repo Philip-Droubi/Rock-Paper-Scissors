@@ -3,6 +3,7 @@ let screen;
 let pScreen;
 let score;
 let userChoice;
+let PCChoice;
 
 export function setMode(mode) {
     gameMode = mode;
@@ -47,4 +48,13 @@ export function setUserChoice(ch) {
 
 export function getUserChoice() {
     return userChoice;
+}
+
+export function setPCChoice(ch) {
+    PCChoice = ch;
+    return true;
+}
+
+export function getPCChoice() {
+    return PCChoice;
 }

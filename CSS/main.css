@@ -6,6 +6,7 @@
     --Header-Outline: hsl(217, 16%, 45%);
     --score-bg: hsl(0, 0%, 97%);
     --fuchsia: rgb(206, 48, 238);
+    --fushi-pink: rgb(207, 99, 144);
     --animated-Gradient: linear-gradient(90deg, var(--fuchsia), hsl(216, 100%, 71%), hsl(349, 71%, 52%));
     --Scissors-Gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     --Paper-Gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
@@ -86,7 +87,7 @@ button:focus {
     }
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
     display: none;
 }
 
@@ -200,6 +201,9 @@ html {
     width: 100%;
 }
 
+.aboutHelpPopup {
+    padding: 26px 24px;
+}
 
 body {
     padding: 0 20px;
@@ -224,6 +228,7 @@ body {
     text-shadow: 0px 4px 2px #0000007a;
 }
 
+.helpPopup .about .name,
 .choose h1 span {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -303,6 +308,7 @@ body {
     position: absolute;
     top: 0;
     left: 20%;
+    user-select: none;
     transition: 0.4s;
 }
 
@@ -465,10 +471,12 @@ body {
 
 .normalSecScreen .game .img .line {
     max-width: 100%;
+    user-select: none;
 }
 
 .bounsSecScreen .game .img .line {
     width: 100%;
+    user-select: none;
 }
 
 .secScreen .game ul li button {
@@ -500,6 +508,7 @@ body {
 
 .secScreen .game ul li button img {
     transition: 0.2s;
+    user-select: none;
 }
 
 .secScreen .game ul li button:hover img {
@@ -511,8 +520,9 @@ body {
     height: 128px;
 }
 
+div:focus,
 .secScreen .game ul li button:focus {
-    outline: 2px dashed var(--Dark-Text) !important;
+    outline: 3px dashed hsl(165, 100%, 50%) !important;
 }
 
 .secScreen .game ul li button img {
@@ -631,6 +641,11 @@ body {
 
 .emptyChoiceCircle {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--score-bg);
+    font-size: 3rem;
     width: 230px;
     height: 230px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -644,6 +659,7 @@ body {
 
 .choiceCircle .img img {
     width: 45%;
+    user-select: none;
 }
 
 .choiceCircle::after {
@@ -745,5 +761,5 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }

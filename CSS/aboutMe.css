@@ -1,0 +1,111 @@
+.helpPopup .about {
+    padding-right: 8px;
+    max-height: 70vh;
+    overflow-y: scroll;
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.helpPopup .about::-webkit-scrollbar {
+    width: 6px;
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
+.helpPopup .about::-webkit-scrollbar-thumb {
+    background-color: gray !important;
+    border-radius: 8px;
+}
+
+.helpPopup .about .name {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.helpPopup .about .challenge {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--Dark-Text);
+}
+
+.helpPopup .about a {
+    transition: 0.2s;
+}
+
+.helpPopup .about .social ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+    color: var(--Dark-Text);
+    font-size: 24px;
+}
+
+.helpPopup .about .social ul li a img:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: 0.2s;
+    border: 2px solid var(--Dark-Text);
+}
+
+.helpPopup .about .social ul li a:hover {
+    letter-spacing: normal;
+}
+
+.helpPopup .about .social ul li a i {
+    transition: 0.2s;
+}
+
+.helpPopup .about .social ul li a img:hover,
+.helpPopup .about .social ul li a i:hover {
+    transform: scale(1.15);
+    text-shadow: 0 1px 1px var(--Dark-Text);
+}
+
+.helpPopup .about img {
+    max-width: 100%;
+}
+
+.dashedBorder {
+    margin: 20px 0;
+    padding: 14px;
+    border-radius: 6px;
+    border: 2px dashed var(--Dark-Text);
+}
+
+.helpPopup .about .topSec {
+    padding-bottom: 14px;
+    border-bottom: 2px solid gray;
+    margin-bottom: 14px;
+}
+
+.helpPopup .about h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    color: var(--Dark-Text);
+    margin-bottom: 10px;
+}
+
+.helpPopup .about h4 {
+    text-transform: uppercase;
+    color: var(--Score-Text);
+}
+
+
+
+.helpPopup .about a:hover {
+    letter-spacing: 1.2px;
+}
+
+.wavyUnderLine {
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--Dark-Text);
+    color: var(--fushi-pink);
+    white-space: nowrap;
+}

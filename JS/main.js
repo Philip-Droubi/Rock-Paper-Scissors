@@ -10,7 +10,7 @@ helper.changeScreen(1);
 // let tow = 0;
 // let three = 0;
 // let four = 0;
-// for (let index = 0; index < 10000000; index++) {
+// for (let index = 0; index < 10000; index++) {
 //     let num = helper.getRandomChoice();
 //     if (num == 0)
 //         z++;
@@ -33,6 +33,7 @@ let backBtn = document.querySelector(".backToPreviousScreenBTN");
 let nRules = document.querySelector('.normalRules');
 let bRules = document.querySelector('.bounsRules');
 let popupExit = document.querySelector('.helpPopup .exit');
+let aboutMe = document.querySelector('.about');
 
 backBtn.addEventListener('click', () => {
     helper.changeScreen(vars.getPScreen());
@@ -67,6 +68,10 @@ bRules.addEventListener('click', () => {
 
 popupExit.addEventListener('click', () => {
     helper.closePopUp();
+});
+
+aboutMe.addEventListener('click', () => {
+    helper.showAboutMe();
 });
 
 
