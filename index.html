@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="CSS/Normalize.css">
   <link rel="stylesheet" href="CSS/all.min.css">
   <link rel="stylesheet" href="CSS/main.css">
+  <link rel="stylesheet" href="CSS/aboutMe.css">
   <title>Frontend Mentor | Rock-Paper-Scissors</title>
 </head>
 
@@ -60,13 +61,60 @@
     <li><button class="rules backToPreviousScreenBTN"><i class="fa fa-arrow-left" aria-hidden="true"></i> back</button>
     </li>
   </ul>
-  <div class="helpPopup hidden">
+  <div class="helpPopup aboutHelpPopup hidden">
     <div class="top">
       <p>Rules</p>
       <button class="exit" aria-label="close the more info menu"><i class="fa fa-close"></i></button>
     </div>
     <div class="img">
       <img src="" alt="">
+    </div>
+    <div class="about hidden">
+      <div class="topSec">
+        <p>Hi 👋, I'm <span class="name">philip</span> !</p>
+        <p>And this is my solution for <span class="challenge">Rock-Paper-Scissors</span> challenge from
+          <a href="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH" target="_blank"
+            rel="noopener noreferrer" class="wavyUnderLine">frontend mentor</a>.
+        </p>
+        <br>
+        <p>Make a visit to my <a href="https://philip-droubi.github.io/Philip_Droubi_portfolio/" target="_blank"
+            rel="noopener noreferrer" class="wavyUnderLine">portfolio</a>.</p>
+        <br>
+        <div class="social">
+          <p>OR find me on: </p>
+          <ul>
+            <li>
+              <a href="https://www.frontendmentor.io/profile/Philip-Droubi" target="_blank" rel="noopener noreferrer"
+                aria-label="Philip droubi frontend mentor profile">
+                <img src="images/favicon-32x32.png" alt="" aria-hidden="true">
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/philip-droubi" target="_blank" rel="noopener noreferrer"
+                aria-label="Philip droubi linkedIn">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Philip-Droubi" target="_blank" rel="noopener noreferrer"
+                aria-label="Philip droubi github">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottomSec">
+        <h2>You can play it in tow modes:</h2>
+        <h4>1. normal mode :</h4>
+        <p>Here you can only choose rock, paper or scissors</p>
+        <p class="pRule">Rules for normal mode :</p>
+        <img src="images/image-rules.svg" alt="normal game rules" class="dashedBorder">
+        <h4>2. bouns mode :</h4>
+        <p>Here you can choose rock, paper, scissors, lizard or spock</p>
+        <p class="pRule">Rules for bouns mode :</p>
+        <img src="images/image-rules-bonus.svg" alt="bouns game rules" class="dashedBorder">
+      </div>
     </div>
   </div>
   <div class="backdrop hidden"></div>

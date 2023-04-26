@@ -7,9 +7,12 @@ let about = document.querySelector('.about');
 let backdrop = document.querySelector('.backdrop');
 let helpPopup = document.querySelector('.helpPopup');
 let helpPopupImg = document.querySelector('.helpPopup .img img');
-
+let timer;
+let stateTimer;
 
 export function changeScreen(screen = 1) {
+  clearTimeout(timer);
+  clearTimeout(stateTimer);
   switch (screen) {
     case 1:
       getFirstScreen();
@@ -44,11 +47,11 @@ function getFirstPageHTML() {
         <h1>Welcome To <span>Rock, Paper & scissors</span> Game! </h1>
         <p>Choose Your Game</p>
         <div class="userChoice">
-            <div class="normal choice" data-mode="1">
+            <div class="normal choice" data-mode="1" tabindex="0">
             Normal <span class="text">rock - paper - scissors</span>
             <div class="after"><span class="topE">✊</span><span class="downE">🖐</span><span class="topE">✌️</span></div>
             </div>
-            <div class="bouns choice" data-mode="2">
+            <div class="bouns choice" data-mode="2" tabindex="0">
             Hard <span class="text">rock - paper - scissors - lizard - spock</span>
             <div class="after"><span class="topE">✊</span><span class="downE">🖐</span><span class="topE">✌️</span><span
                 class="downE">🦎</span><span class="topE">🖖</span></div>
@@ -163,6 +166,12 @@ function getThirdScreen() {
   vars.getMode() == 1 ? main.innerHTML = getThirdPageHTML('normalScoreNav', getRole(+ vars.getUserChoice()), vars.getUserChoice())
     : main.innerHTML = getThirdPageHTML('bounsScoreNav', getRole(+ vars.getUserChoice()), vars.getUserChoice(), 'lizard', 'spock');
   vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
+  timer = setTimeout(() => {
+    PCTurn();
+  }, 500);
+  stateTimer = setTimeout(() => {
+    makeDecision();
+  }, 900);
 }
 
 function getThirdPageHTML(nav = 'normalScoreNav', userType, userID, lizard = "", spock = "") {
@@ -198,6 +207,7 @@ function getThirdPageHTML(nav = 'normalScoreNav', userType, userID, lizard = "",
     <p>the house picked</p>
     <div class="emptyChoiceCircle" data-num="">
       <div class="img">
+      <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
         <img src="" alt="">
       </div>
     </div>
@@ -226,13 +236,47 @@ function getRole(id) {
   }
 }
 
+function PCTurn() {
+  let PCChoice = getRandomChoice();
+  vars.setPCChoice(PCChoice);
+  createPCChoiceElement(PCChoice);
+}
+
 export function getRandomChoice() {
-  return Math.floor(Math.random() * (4 + 1));
+  let max;
+  vars.getMode() == 1 ? max = 2 : max = 4;
+  return Math.floor(Math.random() * (max + 1));
+}
+
+function createPCChoiceElement(ch) {
+  let empty = document.querySelector('.emptyChoiceCircle');
+  let img = document.querySelector('.emptyChoiceCircle .img img');
+  let icon = document.querySelector('.emptyChoiceCircle i');
+  let role = getRole(ch);
+  icon.classList.add('hidden');
+  empty.classList.remove('emptyChoiceCircle');
+  empty.classList.add('choiceCircle', `${role}BTN`);
+  empty.setAttribute('data-num', ch);
+  img.setAttribute('src', `images/icon-${role}.svg`);
+  img.setAttribute('alt', `the house picked ${role}`);
+}
+
+function makeDecision() {
+  let userCh = vars.getUserChoice();
+  let pcCh = vars.getPCChoice();
+  if (userCh - 1 == pcCh || userCh + 2 == pcCh) {
+    console.log('lose');
+  } else if (pcCh - 1 == userCh || userCh - 2 == pcCh) {
+    console.log('win');
+  } else if (userCh == pcCh) {
+    console.log('tie');
+  }
 }
 
 export function showRules(mode) {
   backdrop.classList.remove('hidden');
   helpPopup.classList.remove('hidden');
+  document.querySelector('.helpPopup .top p').textContent = 'Rules'
   if (mode == 1) {
     helpPopupImg.setAttribute('src', 'images/image-rules.svg');
     helpPopupImg.setAttribute('alt', 'Normal game rules');
@@ -245,4 +289,17 @@ export function showRules(mode) {
 export function closePopUp() {
   backdrop.classList.add('hidden');
   helpPopup.classList.add('hidden');
+  helpPopup.classList.remove('aboutHelpPopup');
+  document.querySelector('.helpPopup .about').classList.add('hidden');
+  helpPopupImg.setAttribute('src', '');
+  helpPopupImg.setAttribute('alt', '');
+}
+
+export function showAboutMe() {
+  backdrop.classList.remove('hidden');
+  helpPopup.classList.remove('hidden');
+  helpPopup.classList.add('aboutHelpPopup');
+  document.querySelector('.aboutHelpPopup .about').classList.remove('hidden');
+  document.querySelector('.aboutHelpPopup .top p').textContent = 'ABOUT'
+
 }
