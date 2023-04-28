@@ -1,7 +1,7 @@
 let gameMode;
 let screen;
 let pScreen;
-let score;
+let score = 0;
 let userChoice;
 let PCChoice;
 

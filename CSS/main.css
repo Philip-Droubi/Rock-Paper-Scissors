@@ -55,7 +55,7 @@ button {
     font-family: 'Poppins', sans-serif;
 }
 
-button:focus {
+button:focus-visible {
     outline: 2px dashed rgb(71, 120, 255) !important;
 }
 
@@ -206,7 +206,7 @@ html {
 }
 
 body {
-    padding: 0 20px;
+    padding: 20px 20px 0;
     background: var(--Radial-Gradient);
     min-height: 100vh;
     min-height: 100svh;
@@ -520,8 +520,8 @@ body {
     height: 128px;
 }
 
-div:focus,
-.secScreen .game ul li button:focus {
+div:focus-visible,
+.secScreen .game ul li button:focus-visible {
     outline: 3px dashed hsl(165, 100%, 50%) !important;
 }
 
@@ -697,6 +697,8 @@ div:focus,
     text-shadow: 1px 2px 3px #00000099;
     font-weight: 700;
     text-transform: uppercase;
+    transition: 0.3s;
+    text-align: center;
 }
 
 .state .playAgain {

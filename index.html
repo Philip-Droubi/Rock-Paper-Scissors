@@ -15,18 +15,19 @@
 </head>
 
 <body>
+  <div class="scoreNav hidden">
+    <ul>
+      <li>Rock</li>
+      <li>paper</li>
+      <li>scissors</li>
+    </ul>
+    <div class="score">
+      <p>Score<span>0</span></p>
+    </div>
+  </div>
   <main class="thirdScreen normalThirdScreen">
     <div class="container">
-      <div class="normalScoreNav scoreNav">
-        <ul>
-          <li>Rock</li>
-          <li>paper</li>
-          <li>scissors</li>
-        </ul>
-        <div class="score">
-          <p>Score<span>0</span></p>
-        </div>
-      </div>
+
       <div class="inGameFlex">
         <div class="userChoice playChoice">
           <p>you picked</p>
@@ -36,7 +37,7 @@
             </div>
           </div>
         </div>
-        <div class="state hidden">
+        <div class="state">
           <p>You lose</p>
           <button class="playAgain">play again</button>
         </div>
