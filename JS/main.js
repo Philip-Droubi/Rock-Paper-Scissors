@@ -36,6 +36,9 @@ let popupExit = document.querySelector('.helpPopup .exit');
 let aboutMe = document.querySelector('.about');
 
 backBtn.addEventListener('click', () => {
+    if (vars.getPScreen() == 1) {
+        document.querySelector('.scoreNav').classList.add('hidden');
+    }
     helper.changeScreen(vars.getPScreen());
 });
 
@@ -55,6 +58,10 @@ document.body.addEventListener("click", (e) => {
         else if (e.target.classList.contains('playRoleBTN'))
             vars.setUserChoice(e.target.getAttribute("data-num"));
         helper.changeScreen(3);
+    }
+    else if (e.target.classList.contains('playAgain')) {
+        if (vars.getScreen() == 3)
+            helper.changeScreen(vars.getPScreen());
     }
 });
 
