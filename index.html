@@ -23,40 +23,19 @@
     </ul>
     <div class="score">
       <p>Score<span>0</span></p>
+      <button class="reset" aria-label="Reset score to 0" title="Reset scrore"><i class="fas fa-undo-alt"></i></button>
     </div>
   </div>
-  <main class="thirdScreen normalThirdScreen">
-    <div class="container">
-
-      <div class="inGameFlex">
-        <div class="userChoice playChoice">
-          <p>you picked</p>
-          <div class="choiceCircle rockBTN" data-num="">
-            <div class="img">
-              <img src="images/icon-scissors.svg" alt="You picked scissors">
-            </div>
-          </div>
-        </div>
-        <div class="state">
-          <p>You lose</p>
-          <button class="playAgain">play again</button>
-        </div>
-        <div class="pcChoice playChoice">
-          <p>the house picked</p>
-          <div class="emptyChoiceCircle" data-num="">
-            <div class="img">
-              <img src="" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+  <main></main>
   <ul class="rightSideButtons">
-    <li><button class="rules download">Download</button></li>
-    <li><button class="rules about">About</button></li>
-    <li><button class="rules normalRules hidden">Rules</button></li>
-    <li><button class="rules bounsRules hidden">Rules</button></li>
+    <div class="toTop">
+      <li><button class="rules download">Download</button></li>
+      <li><button class="rules about">About</button></li>
+    </div>
+    <div class="toBottom">
+      <li><button class="rules normalRules hidden">Rules</button></li>
+      <li><button class="rules bounsRules hidden">Rules</button></li>
+    </div>
   </ul>
   <ul class="leftSideButtons hidden">
     <li><button class="rules backToPreviousScreenBTN"><i class="fa fa-arrow-left" aria-hidden="true"></i> back</button>

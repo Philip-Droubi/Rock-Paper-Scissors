@@ -1,6 +1,7 @@
 // CREATED BY PHILIP DROUBI
 import * as vars from "./Vars.js";
 let leftSideUL = document.querySelector('.leftSideButtons');
+let rightSideUL = document.querySelector('.rightSideButtons');
 let nRules = document.querySelector('.normalRules');
 let bRules = document.querySelector('.bounsRules');
 let about = document.querySelector('.about');
@@ -41,6 +42,8 @@ function getFirstScreen() {
   leftSideUL.classList.add('hidden');
   nRules.classList.add('hidden');
   bRules.classList.add('hidden');
+  document.body.style.padding = "0 20px";
+  rightSideUL.style.height = 'fit-content';
 }
 
 function getFirstPageHTML() {
@@ -74,6 +77,10 @@ function getSecScreen() {
   vars.getMode() == 1 ? main.innerHTML = getNormalSecPageHTML() : main.innerHTML = getBounsSecPageHTML();
   vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
   vars.getMode() == 1 ? showScoreNav(1) : showScoreNav(2);
+  document.body.style.padding = "20px 20px 0";
+  if (window.innerWidth <= 1256)
+    rightSideUL.style.height = '93vh';
+
 }
 
 function showScoreNav(type) {
@@ -176,9 +183,9 @@ function getThirdScreen() {
   stateTimer = setTimeout(() => {
     let state;
     if (vars.getMode() == 1)
-      state = makeDecisionNormal();
+      state = makeDecision();
     else if (vars.getMode() == 2)
-      state = makeDecisionBouns();
+      state = makeDecision();
     if (state == 1 || state == 0)
       makeWinner(state);
   }, 900);
@@ -258,28 +265,58 @@ function createPCChoiceElement(ch) {
   img.setAttribute('alt', `the house picked ${role}`);
 }
 
-function makeDecisionNormal() {
+function makeDecision() {
   let userCh = vars.getUserChoice();
   let pcCh = vars.getPCChoice();
   let state;
-  if (userCh - 1 == pcCh || userCh + 2 == pcCh) {
-    vars.addScore(-1);
-    state = 0;
-    showState(state);
-  } else if (pcCh - 1 == userCh || userCh - 2 == pcCh) {
-    vars.addScore(1);
-    state = 1;
-    showState(state);
-  } else if (userCh == pcCh) {
+  if (userCh == pcCh) {
     state = 2;
     showState(state)
+  } else if (userCh == 0) {
+    if (pcCh == 1 || pcCh == 3) {
+      state = 1;
+      showState(state);
+    } else {
+      state = 0;
+      showState(state);
+    }
+  } else if (userCh == 1) {
+    if (pcCh == 2 || pcCh == 4) {
+      state = 1;
+      showState(state);
+    } else {
+      state = 0;
+      showState(state);
+    }
+  } else if (userCh == 2) {
+    if (pcCh == 3 || pcCh == 0) {
+      state = 1;
+      showState(state);
+    } else {
+      state = 0;
+      showState(state);
+    }
+    score.innerHTML = vars.getScore();
+    return state;
+  } else if (userCh == 3) {
+    if (pcCh == 4 || pcCh == 1) {
+      state = 1;
+      showState(state);
+    } else {
+      state = 0;
+      showState(state);
+    }
+  } else if (userCh == 4) {
+    if (pcCh == 0 || pcCh == 2) {
+      state = 1;
+      showState(state);
+    } else {
+      state = 0;
+      showState(state);
+    }
   }
   score.innerHTML = vars.getScore();
   return state;
-}
-
-function makeDecisionBouns() {
-
 }
 
 export function showRules(mode) {
@@ -316,11 +353,12 @@ export function showAboutMe() {
 function showState(s) {
   let state = document.querySelector('.state');
   let p = document.querySelector('.state p');
-  console.log(vars.getScore());
   if (s == 0) {
+    vars.addScore(-1);
     p.textContent = "you lose";
   }
   if (s == 1) {
+    vars.addScore(1);
     p.textContent = "you win";
   }
   if (s == 2) {

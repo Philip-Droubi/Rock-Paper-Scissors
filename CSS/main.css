@@ -99,6 +99,7 @@ html {
     position: fixed;
     right: 32px;
     bottom: 20px;
+    transition: 0.25s;
 }
 
 .leftSideButtons {
@@ -206,12 +207,14 @@ html {
 }
 
 body {
-    padding: 20px 20px 0;
+    padding: 0 20px 0;
     background: var(--Radial-Gradient);
     min-height: 100vh;
     min-height: 100svh;
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: var(--font-size);
+    transition: 0.2s;
+    overflow-x: hidden;
 }
 
 .choose {
@@ -424,6 +427,7 @@ body {
 }
 
 .scoreNav .score {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,6 +440,14 @@ body {
     text-transform: uppercase;
     font-size: 1.4rem;
     border-radius: 10px;
+}
+
+.scoreNav .score .reset {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    color: var(--Dark-Text);
+    transition: 0.2s;
 }
 
 .normalScoreNav .score {
@@ -454,6 +466,7 @@ body {
     color: var(--Dark-Text);
 }
 
+.normalSecScreen .game,
 .bounsSecScreen .game {
     margin-bottom: 50px;
 }
@@ -738,11 +751,86 @@ div:focus-visible,
     }
 }
 
+@media (max-height: 658px) {
+    .choose h1 {
+        margin: 42px 0;
+    }
+
+    .secScreen {
+        padding: 0;
+    }
+
+    .bounsSecScreen {
+        transform: scale(0.9);
+        margin-top: -40px;
+    }
+
+    .inGameFlex {
+        margin-top: 0 !important;
+    }
+
+    .choose p {
+        margin-bottom: 54px;
+    }
+}
+
 @media (min-width: 1256px) {
-    body .choose {
+    .choose {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+}
+
+@media (max-width: 1256px) {
+    .playChoice {
+        transform: scale(0.8);
+    }
+
+    .thirdScreen .inGameFlex {
+        gap: 50px;
+    }
+
+    .rightSideButtons {
+        height: 93vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .normalScoreNav ul li {
+        font-size: 2rem;
+        line-height: 26px;
+    }
+
+    .normalScoreNav .score {
+        height: 95px;
+    }
+
+    .scoreNav {
+        max-width: 630px;
+    }
+
+    .scoreNav .score {
+        width: 140px;
+    }
+
+    .scoreNav .score span {
+        font-size: 3.1rem;
+    }
+
+    .bounsScoreNav ul li {
+        font-size: 1.56rem;
+        line-height: 20px;
+    }
+
+    .bounsScoreNav .score {
+        height: 100px;
+    }
+
+    .rules {
+        width: 140px;
     }
 }
 
@@ -759,6 +847,13 @@ div:focus-visible,
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 58px;
+    }
+}
+
+@media (hover:hover) {
+    .scoreNav .score .reset:hover {
+        transform: scale(1.1) rotate(-90deg);
+        filter: brightness(1.5);
     }
 }
 
