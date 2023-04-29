@@ -1,7 +1,7 @@
 let gameMode;
 let screen;
 let pScreen;
-let score = 0;
+let score = +(localStorage.getItem("score") || 0);
 let userChoice;
 let PCChoice;
 
@@ -32,13 +32,20 @@ export function getPScreen() {
     return pScreen;
 }
 
+export function setScore(s) {
+    score = s;
+    localStorage.setItem("score", s);
+    return true;
+}
+
 export function addScore(s) {
     score = score + s;
+    localStorage.setItem("score", score);
     return true;
 }
 
 export function getScore() {
-    return score;
+    return Number(score);
 }
 
 export function setUserChoice(ch) {

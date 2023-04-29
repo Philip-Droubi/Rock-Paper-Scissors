@@ -4,7 +4,17 @@ import * as helper from "./helper.js";
 
 //INIT the game
 helper.changeScreen(1);
+document.querySelector(".scoreNav .score p span").textContent = vars.getScore();
 //
+
+
+// let width = document.createElement('div')
+// width.innerHTML = window.innerWidth;
+// let height = document.createElement('div')
+// height.innerHTML = window.innerHeight;
+// document.body.appendChild(width);
+// document.body.appendChild(height);
+
 // let z = 0;
 // let one = 0;
 // let tow = 0;
@@ -34,6 +44,16 @@ let nRules = document.querySelector('.normalRules');
 let bRules = document.querySelector('.bounsRules');
 let popupExit = document.querySelector('.helpPopup .exit');
 let aboutMe = document.querySelector('.about');
+let resetScore = document.querySelector('.scoreNav .score .reset');
+
+window.addEventListener('keydown', e => {
+    if (e.key == 'Backspace' && vars.getScreen() != 1) {
+        if (vars.getPScreen() == 1) {
+            document.querySelector('.scoreNav').classList.add('hidden');
+        }
+        helper.changeScreen(vars.getPScreen());
+    }
+});
 
 backBtn.addEventListener('click', () => {
     if (vars.getPScreen() == 1) {
@@ -59,9 +79,8 @@ document.body.addEventListener("click", (e) => {
             vars.setUserChoice(e.target.getAttribute("data-num"));
         helper.changeScreen(3);
     }
-    else if (e.target.classList.contains('playAgain')) {
-        if (vars.getScreen() == 3)
-            helper.changeScreen(vars.getPScreen());
+    else if (e.target.classList.contains('playAgain') && vars.getScreen() == 3) {
+        helper.changeScreen(vars.getPScreen());
     }
 });
 
@@ -81,4 +100,7 @@ aboutMe.addEventListener('click', () => {
     helper.showAboutMe();
 });
 
-
+resetScore.addEventListener('click', () => {
+    vars.setScore(0);
+    document.querySelector('.scoreNav .score p span').textContent = 0
+});
