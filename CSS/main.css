@@ -62,21 +62,22 @@ button:focus-visible {
 /* Small */
 @media (min-width: 768px) {
     .container {
-        width: 768px;
+        width: 750px;
+        padding: 0;
     }
 }
 
 /* Medium */
 @media (min-width: 992px) {
     .container {
-        width: 990px;
+        width: 970px;
     }
 }
 
 /* Large */
 @media (min-width: 1200px) {
     .container {
-        width: 1200px;
+        width: 1170px;
     }
 }
 
@@ -469,6 +470,7 @@ body {
 .normalSecScreen .game,
 .bounsSecScreen .game {
     margin-bottom: 50px;
+    transition: 0.2s;
 }
 
 .secScreen .game .img {
@@ -774,6 +776,16 @@ div:focus-visible,
     }
 }
 
+@media (max-height: 570px) {
+    .normalSecScreen .game {
+        transform: scale(0.8) translateY(-55px);
+    }
+
+    .thirdScreen {
+        padding: 0;
+    }
+}
+
 @media (min-width: 1256px) {
     .choose {
         display: flex;
@@ -834,7 +846,47 @@ div:focus-visible,
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1120px) {
+    .choose h1 {
+        font-size: 3.6rem;
+        margin: 32px 0;
+    }
+}
+
+@media (min-width: 991px)and((max-width: 1120px)) {
+    .choose h1 {
+        font-size: 3rem;
+    }
+
+    .choose p {
+        font-size: 2.8rem;
+    }
+
+    .choose .choice:nth-child(1) {
+        margin-bottom: 54px;
+    }
+
+    .choose .choice {
+        max-width: 350px;
+        font-size: 2.2rem;
+    }
+
+    .secScreen .game {
+        transform: scale(0.8) translateY(-50px);
+    }
+
+    .thirdScreen .inGameFlex {
+        transform: scale(0.8) translateY(-50px);
+    }
+}
+
+@media (min-width: 991px) {
+    .mobileScreenButtons {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
     .choose h1 {
         font-size: 2.6rem;
         max-width: 90%;
@@ -847,6 +899,30 @@ div:focus-visible,
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 58px;
+    }
+
+    .wideScreenButtons {
+        display: none;
+    }
+
+    .mobileScreenButtons {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobileScreenButtons {
+        bottom: 40px;
+        right: 40px;
+        top: unset;
+    }
+
+    .mobileScreenButtons .mainMenu {
+        bottom: 18px;
+        top: unset;
+        right: 50px;
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 0;
     }
 }
 

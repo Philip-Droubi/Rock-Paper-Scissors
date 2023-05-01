@@ -1,9 +1,9 @@
 // CREATED BY PHILIP DROUBI
 import * as vars from "./Vars.js";
-let leftSideUL = document.querySelector('.leftSideButtons');
+let leftSideUL = document.querySelectorAll('.leftSideButtons');
 let rightSideUL = document.querySelector('.rightSideButtons');
-let nRules = document.querySelector('.normalRules');
-let bRules = document.querySelector('.bounsRules');
+let nRules = document.querySelectorAll('.normalRules');
+let bRules = document.querySelectorAll('.bounsRules');
 let about = document.querySelector('.about');
 let backdrop = document.querySelector('.backdrop');
 let helpPopup = document.querySelector('.helpPopup');
@@ -39,9 +39,9 @@ function getFirstScreen() {
   main.className = "";
   main.classList.add('choose');
   main.innerHTML = getFirstPageHTML();
-  leftSideUL.classList.add('hidden');
-  nRules.classList.add('hidden');
-  bRules.classList.add('hidden');
+  leftSideUL.forEach(e => e.classList.add('hidden'));
+  nRules.forEach(e => e.classList.add('hidden'));
+  bRules.forEach(e => e.classList.add('hidden'));
   document.body.style.padding = "0 20px";
   rightSideUL.style.height = 'fit-content';
 }
@@ -72,10 +72,11 @@ function getSecScreen() {
   let main = document.querySelector('main');
   main.className = "";
   main.classList.add('secScreen');
-  leftSideUL.classList.remove('hidden');
+  leftSideUL.forEach(e => e.classList.remove('hidden'));
   vars.getMode() == 1 ? main.classList.add('normalSecScreen') : main.classList.add('bounsSecScreen');
   vars.getMode() == 1 ? main.innerHTML = getNormalSecPageHTML() : main.innerHTML = getBounsSecPageHTML();
-  vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
+  vars.getMode() == 1 ? nRules.forEach(e => e.classList.remove('hidden'))
+    : nRules.forEach(e => e.classList.remove('hidden'));
   vars.getMode() == 1 ? showScoreNav(1) : showScoreNav(2);
   document.body.style.padding = "20px 20px 0";
   if (window.innerWidth <= 1256)
@@ -172,11 +173,12 @@ function getThirdScreen() {
   let main = document.querySelector('main');
   main.className = "";
   main.classList.add('thirdScreen');
-  leftSideUL.classList.remove('hidden');
+  leftSideUL.forEach(e => e.classList.remove('hidden'));
   vars.getMode() == 1 ? main.classList.add('normalThirdScreen') : main.classList.add('bounsThirdScreen');
   vars.getMode() == 1 ? main.innerHTML = getThirdPageHTML(getRole(+ vars.getUserChoice()), vars.getUserChoice())
     : main.innerHTML = getThirdPageHTML(getRole(+ vars.getUserChoice()), vars.getUserChoice());
-  vars.getMode() == 1 ? nRules.classList.remove('hidden') : bRules.classList.remove('hidden');
+  vars.getMode() == 1 ? nRules.forEach(e => e.classList.remove('hidden'))
+    : bRules.forEach(e => e.classList.add('hidden'));
   timer = setTimeout(() => {
     PCTurn();
   }, 500);
