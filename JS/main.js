@@ -39,12 +39,15 @@ document.querySelector(".scoreNav .score p span").textContent = vars.getScore();
 // console.log("three = " + three);
 // console.log("four = " + four);
 
-let backBtn = document.querySelector(".backToPreviousScreenBTN");
-let nRules = document.querySelector('.normalRules');
-let bRules = document.querySelector('.bounsRules');
+let backBtn = document.querySelectorAll(".backToPreviousScreenBTN");
+let nRules = document.querySelectorAll('.normalRules');
+let bRules = document.querySelectorAll('.bounsRules');
 let popupExit = document.querySelector('.helpPopup .exit');
-let aboutMe = document.querySelector('.about');
+let aboutMe = document.querySelectorAll('.about');
 let resetScore = document.querySelector('.scoreNav .score .reset');
+let berg = document.querySelector('.berg');
+let mobileMenu = document.querySelector('.mainMenu');
+let menuOpen = false;
 
 window.addEventListener('keydown', e => {
     if (e.key == 'Backspace' && vars.getScreen() != 1) {
@@ -55,11 +58,13 @@ window.addEventListener('keydown', e => {
     }
 });
 
-backBtn.addEventListener('click', () => {
-    if (vars.getPScreen() == 1) {
-        document.querySelector('.scoreNav').classList.add('hidden');
-    }
-    helper.changeScreen(vars.getPScreen());
+backBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (vars.getPScreen() == 1) {
+            document.querySelector('.scoreNav').classList.add('hidden');
+        }
+        helper.changeScreen(vars.getPScreen());
+    });
 });
 
 document.body.addEventListener("click", (e) => {
@@ -81,26 +86,46 @@ document.body.addEventListener("click", (e) => {
     }
     else if (e.target.classList.contains('playAgain') && vars.getScreen() == 3) {
         helper.changeScreen(vars.getPScreen());
+    } else if (menuOpen && !e.target.classList.contains('mainMenu')) {
+        berg.classList.remove('bergClicked');
+        mobileMenu.classList.add('hidden');
+        setTimeout(() => {
+            menuOpen = false;
+        }, 20);
     }
 });
 
-nRules.addEventListener('click', () => {
-    helper.showRules(1);
+nRules.forEach(r => {
+    r.addEventListener('click', () => {
+        helper.showRules(1);
+    });
 });
 
-bRules.addEventListener('click', () => {
-    helper.showRules(2);
+bRules.forEach(r => {
+    r.addEventListener('click', () => {
+        helper.showRules(2);
+    });
 });
 
 popupExit.addEventListener('click', () => {
     helper.closePopUp();
 });
 
-aboutMe.addEventListener('click', () => {
-    helper.showAboutMe();
+aboutMe.forEach(e => {
+    e.addEventListener('click', () => {
+        helper.showAboutMe();
+    });
 });
 
 resetScore.addEventListener('click', () => {
     vars.setScore(0);
     document.querySelector('.scoreNav .score p span').textContent = 0
+});
+
+berg.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+    berg.classList.add('bergClicked');
+    setTimeout(() => {
+        menuOpen = true;
+    }, 20);
 });
