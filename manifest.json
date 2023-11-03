@@ -1,0 +1,28 @@
+{
+    "lang": "en-us",
+    "name": "Rock Paper Scissors By Philip Droubi",
+    "short_name": "RPS",
+    "description": "A frontend mentor Rock Paper Scissors challenge done by Philip Droubi",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#3a4764",
+    "theme_color": "#1f3756",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/rock-paper-scissors-master/images/RPS-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/rock-paper-scissors-master/images/RPS-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/rock-paper-scissors-master/images/RPS-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}

@@ -2,42 +2,19 @@
 import * as vars from "./Vars.js";
 import * as helper from "./helper.js";
 
+//PWA
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("/rock-paper-scissors-master/serviceWorker.js")
+            .then(res => console.log("service worker registered"))
+            .catch(err => console.log("service worker not registered", err))
+    });
+}
+
 //INIT the game
 helper.changeScreen(1);
 document.querySelector(".scoreNav .score p span").textContent = vars.getScore();
-//
-
-
-// let width = document.createElement('div')
-// width.innerHTML = window.innerWidth;
-// let height = document.createElement('div')
-// height.innerHTML = window.innerHeight;
-// document.body.appendChild(width);
-// document.body.appendChild(height);
-
-// let z = 0;
-// let one = 0;
-// let tow = 0;
-// let three = 0;
-// let four = 0;
-// for (let index = 0; index < 10000; index++) {
-//     let num = helper.getRandomChoice();
-//     if (num == 0)
-//         z++;
-//     if (num == 1)
-//         one += 1;
-//     if (num == 2)
-//         tow += 1;
-//     if (num == 3)
-//         three += 1;
-//     if (num == 4)
-//         four += 1;
-// }
-// console.log("zero = " + z);
-// console.log("one = " + one);
-// console.log("tow = " + tow);
-// console.log("three = " + three);
-// console.log("four = " + four);
 
 let backBtn = document.querySelectorAll(".backToPreviousScreenBTN");
 let nRules = document.querySelectorAll('.normalRules');
