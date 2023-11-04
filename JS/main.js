@@ -6,7 +6,7 @@ import * as helper from "./helper.js";
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
         navigator.serviceWorker
-            .register("/rock-paper-scissors-master/serviceWorker.js")
+            .register("/Rock-Paper-Scissors/serviceWorker.js")
             .then(res => console.log("service worker registered"))
             .catch(err => console.log("service worker not registered", err))
     });
