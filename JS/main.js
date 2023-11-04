@@ -12,6 +12,25 @@ if ("serviceWorker" in navigator) {
     });
 }
 
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    deferredPrompt = e;
+});
+
+const installApp = document.querySelectorAll('.download');
+if (installApp)
+    installApp.forEach(element => {
+        element.addEventListener('click', async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    deferredPrompt = null;
+                }
+            }
+        });
+    });
+
 //INIT the game
 helper.changeScreen(1);
 document.querySelector(".scoreNav .score p span").textContent = vars.getScore();
