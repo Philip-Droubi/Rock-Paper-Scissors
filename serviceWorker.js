@@ -1,5 +1,5 @@
 const calculatorApp = "rock-paper-scissors-v1";
-const link = "/rock-paper-scissors-master";
+const link = "/Rock-Paper-Scissors";
 const assets = [
     `${link}/`,
     `${link}/index.html`,
@@ -23,8 +23,6 @@ const assets = [
     `${link}/images/image-rules.svg`,
     `${link}/images/logo-bonus.svg`,
     `${link}/images/logo.svg`,
-    `${link}/Fonts/LeagueSpartan-Bold.ttf`,
-    `${link}/Fonts/LeagueSpartan-Medium.ttf`,
     `${link}/webfonts/*`,
 ];
 

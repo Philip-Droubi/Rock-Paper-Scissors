@@ -10,17 +10,17 @@
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/rock-paper-scissors-master/images/RPS-128.png",
+            "src": "/Rock-Paper-Scissors/images/RPS-128.png",
             "type": "image/png",
             "sizes": "128x128"
         },
         {
-            "src": "/rock-paper-scissors-master/images/RPS-192.png",
+            "src": "/Rock-Paper-Scissors/images/RPS-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/rock-paper-scissors-master/images/RPS-512.png",
+            "src": "/Rock-Paper-Scissors/images/RPS-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
