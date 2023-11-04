@@ -21,7 +21,7 @@ const installApp = document.querySelectorAll('.download');
 if (installApp)
     installApp.forEach(element => {
         element.addEventListener('click', async () => {
-            if (deferredPrompt !== null) {
+            if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
                 if (outcome === 'accepted') {
