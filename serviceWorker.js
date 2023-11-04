@@ -23,16 +23,34 @@ const assets = [
     `${link}/images/image-rules.svg`,
     `${link}/images/logo-bonus.svg`,
     `${link}/images/logo.svg`,
-    `${link}/webfonts/*`,
+    `${link}/webfonts/fa-brands-400.eot`,
+    `${link}/webfonts/fa-brands-400.svg`,
+    `${link}/webfonts/fa-brands-400.ttf`,
+    `${link}/webfonts/fa-brands-400.woff`,
+    `${link}/webfonts/fa-brands-400.woff2`,
+    `${link}/webfonts/fa-regular-400.eot`,
+    `${link}/webfonts/fa-regular-400.svg`,
+    `${link}/webfonts/fa-regular-400.ttf`,
+    `${link}/webfonts/fa-regular-400.woff`,
+    `${link}/webfonts/fa-regular-400.woff2`,
+    `${link}/webfonts/fa-solid-900.eot`,
+    `${link}/webfonts/fa-solid-900.svg`,
+    `${link}/webfonts/fa-solid-900.ttf`,
+    `${link}/webfonts/fa-solid-900.woff`,
+    `${link}/webfonts/fa-solid-900.woff2`,
 ];
 
 self.addEventListener("install", installEvent => {
+    installApp(installEvent);
+});
+
+function installApp(installEvent) {
     installEvent.waitUntil(
         caches.open(calculatorApp).then(cache => {
             cache.addAll(assets);
         })
     )
-});
+}
 
 self.addEventListener("fetch", fetchEvent => {
     fetchEvent.respondWith(

@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@font-face {
+    font-family: 'BSC300';
+    src:
+        url('../Fonts/BarlowSemiCondensed-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'BSC500';
+    src:
+        url('../Fonts/BarlowSemiCondensed-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'BSC600';
+    src:
+        url('../Fonts/BarlowSemiCondensed-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'BSC700';
+    src:
+        url('../Fonts/BarlowSemiCondensed-Bold.ttf');
+    font-weight: 700;
+}
+
 :root {
     --Dark-Text: hsl(228, 25%, 31%);
     --Score-Text: hsl(229, 64%, 46%);
@@ -52,7 +80,7 @@ button {
     font-size: inherit;
     font-size: var(--font-size);
     background-color: transparent;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'BSC500', sans-serif;
 }
 
 button:focus-visible {
@@ -170,6 +198,7 @@ html {
 .helpPopup .top p {
     text-transform: uppercase;
     letter-spacing: 2.2px;
+    font-family: 'BSC700', 'sans-serif';
     font-weight: 700;
     font-size: 1.8rem;
     color: var(--Dark-Text);
@@ -181,6 +210,7 @@ html {
     justify-content: center;
     border-radius: 50%;
     font-size: 1.8rem;
+    font-family: 'BSC300', sans-serif;
     font-weight: 300;
     color: rgb(180, 180, 180);
     height: 40px;
@@ -212,7 +242,7 @@ body {
     background: var(--Radial-Gradient);
     min-height: 100vh;
     min-height: 100svh;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'BSC500', sans-serif;
     font-size: var(--font-size);
     transition: 0.2s;
     overflow-x: hidden;
@@ -264,6 +294,7 @@ body {
 .choose p {
     color: var(--fuchsia);
     font-size: 3rem;
+    font-family: 'BSC600', sans-serif;
     font-weight: 600;
     margin-bottom: 80px;
 }
@@ -278,6 +309,7 @@ body {
     max-width: 380px;
     width: 90%;
     font-size: 2.4rem;
+    font-family: 'BSC500', sans-serif;
     font-weight: 500;
     border-radius: 12px;
     margin: auto;
@@ -412,6 +444,7 @@ body {
 
 .scoreNav ul li {
     color: var(--score-bg);
+    font-family: 'BSC600', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.4px;
@@ -437,6 +470,7 @@ body {
     text-align: center;
     color: var(--Score-Text);
     letter-spacing: 2px;
+    font-family: 'BSC600', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 1.4rem;
@@ -462,6 +496,7 @@ body {
 .scoreNav .score span {
     display: block;
     font-size: 3.4rem;
+    font-family: 'BSC700', sans-serif;
     font-weight: 700;
     transform: scaleY(1.2);
     color: var(--Dark-Text);
@@ -635,6 +670,7 @@ div:focus-visible,
     color: var(--score-bg);
     text-transform: uppercase;
     letter-spacing: 2.8px;
+    font-family: 'BSC600', sans-serif;
     font-weight: 600;
     font-size: 1.8rem;
     margin-bottom: 80px;
@@ -710,6 +746,7 @@ div:focus-visible,
     letter-spacing: 3px;
     min-width: 211px;
     text-shadow: 1px 2px 3px #00000099;
+    font-family: 'BSC700', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     transition: 0.3s;
@@ -897,6 +934,7 @@ div:focus-visible,
     .choose p {
         color: var(--fuchsia);
         font-size: 2rem;
+        font-family: 'BSC600', sans-serif;
         font-weight: 600;
         margin-bottom: 58px;
     }
