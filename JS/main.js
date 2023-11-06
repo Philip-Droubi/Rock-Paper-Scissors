@@ -93,13 +93,13 @@ document.body.addEventListener("click", (e) => {
 
 nRules.forEach(r => {
     r.addEventListener('click', () => {
-        helper.showRules(1);
+        helper.showRules();
     });
 });
 
 bRules.forEach(r => {
     r.addEventListener('click', () => {
-        helper.showRules(2);
+        helper.showRules();
     });
 });
 

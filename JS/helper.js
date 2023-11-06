@@ -7,7 +7,7 @@ let bRules = document.querySelectorAll('.bounsRules');
 let about = document.querySelector('.about');
 let backdrop = document.querySelector('.backdrop');
 let helpPopup = document.querySelector('.helpPopup');
-let helpPopupImg = document.querySelector('.helpPopup .img img');
+let helpPopupImg = document.querySelector('.helpPopup .img');
 let scoreNav = document.querySelector('.scoreNav');
 let score = document.querySelector('.scoreNav .score p span');
 let timer;
@@ -321,17 +321,20 @@ function makeDecision() {
   return state;
 }
 
-export function showRules(mode) {
+export function showRules() {
   backdrop.classList.remove('hidden');
   helpPopup.classList.remove('hidden');
-  document.querySelector('.helpPopup .top p').textContent = 'Rules'
+  document.querySelector('.helpPopup .top p').textContent = 'Rules';
+  const mode = vars.getMode();
+  let img = document.createElement('img');
   if (mode == 1) {
-    helpPopupImg.setAttribute('src', 'images/image-rules.svg');
-    helpPopupImg.setAttribute('alt', 'Normal game rules');
+    img.setAttribute('src', 'images/image-rules.svg');
+    img.setAttribute('alt', 'Normal game rules');
   } else if (mode == 2) {
-    helpPopupImg.setAttribute('src', 'images/image-rules-bonus.svg');
-    helpPopupImg.setAttribute('alt', 'bouns game rules');
+    img.setAttribute('src', 'images/image-rules-bonus.svg');
+    img.setAttribute('alt', 'bouns game rules');
   }
+  helpPopupImg.appendChild(img);
 }
 
 export function closePopUp() {
@@ -339,8 +342,8 @@ export function closePopUp() {
   helpPopup.classList.add('hidden');
   helpPopup.classList.remove('aboutHelpPopup');
   document.querySelector('.helpPopup .about').classList.add('hidden');
-  helpPopupImg.setAttribute('src', '');
-  helpPopupImg.setAttribute('alt', '');
+  let img = helpPopupImg.lastElementChild;
+  if (img) img.remove();
 }
 
 export function showAboutMe() {
